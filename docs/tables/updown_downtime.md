@@ -2,6 +2,8 @@
 
 History of downtime blocks detected for the checks.
 
+Note: The `token` field must be set in the `where` clause.
+
 ## Examples
 
 ### List all downtimes
