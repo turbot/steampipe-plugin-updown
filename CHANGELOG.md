@@ -6,5 +6,5 @@ _What's new?_
 - New tables added
   - [updown_check](https://hub.steampipe.io/plugins/turbot/updown/tables/updown_check)
   - [updown_downtime](https://hub.steampipe.io/plugins/turbot/updown/tables/updown_downtime)
-  - [updown_metric](https://hub.steampipe.io/plugins/turbot/updown/tables/updown_metric)
+  - [updown_metric_hour](https://hub.steampipe.io/plugins/turbot/updown/tables/updown_metric_hour)
   - [updown_node](https://hub.steampipe.io/plugins/turbot/updown/tables/updown_node)

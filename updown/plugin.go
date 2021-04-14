@@ -16,10 +16,10 @@ func Plugin(ctx context.Context) *plugin.Plugin {
 		},
 		DefaultTransform: transform.FromGo().NullIfZero(),
 		TableMap: map[string]*plugin.Table{
-			"updown_check":    tableUpDownCheck(ctx),
-			"updown_downtime": tableUpDownDowntime(ctx),
-			"updown_metric":   tableUpDownMetric(ctx),
-			"updown_node":     tableUpDownNode(ctx),
+			"updown_check":       tableUpDownCheck(ctx),
+			"updown_downtime":    tableUpDownDowntime(ctx),
+			"updown_metric_hour": tableUpDownMetricHour(ctx),
+			"updown_node":        tableUpDownNode(ctx),
 		},
 	}
 	return p

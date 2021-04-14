@@ -10,12 +10,12 @@ import (
 	"github.com/turbot/steampipe-plugin-sdk/plugin/transform"
 )
 
-func tableUpDownMetric(ctx context.Context) *plugin.Table {
+func tableUpDownMetricHour(ctx context.Context) *plugin.Table {
 	return &plugin.Table{
-		Name:        "updown_metric",
+		Name:        "updown_metric_hour",
 		Description: "Get detailed metrics about a check. Statistic are aggregated per hour. For example all requests performed between 5:00 and 5:59 will be reported at 5:00 in this API. The time range needs to be at least one hour to get data.",
 		List: &plugin.ListConfig{
-			Hydrate:    listMetric,
+			Hydrate:    listMetricHour,
 			KeyColumns: plugin.SingleColumn("token"),
 		},
 		Columns: []*plugin.Column{
@@ -35,10 +35,10 @@ type metricRow struct {
 	Metric    updown.MetricItem
 }
 
-func listMetric(ctx context.Context, d *plugin.QueryData, _ *plugin.HydrateData) (interface{}, error) {
+func listMetricHour(ctx context.Context, d *plugin.QueryData, _ *plugin.HydrateData) (interface{}, error) {
 	conn, err := connect(ctx, d)
 	if err != nil {
-		plugin.Logger(ctx).Error("updown_metric.listMetric", "connection_error", err)
+		plugin.Logger(ctx).Error("updown_metric_hour.listMetricHour", "connection_error", err)
 		return nil, err
 	}
 	quals := d.KeyColumnQuals
@@ -49,7 +49,7 @@ func listMetric(ctx context.Context, d *plugin.QueryData, _ *plugin.HydrateData)
 			// Not found
 			return nil, nil
 		}
-		plugin.Logger(ctx).Error("updown_metric.listMetric", "query_error", err, "resp", resp)
+		plugin.Logger(ctx).Error("updown_metric_hour.listMetricHour", "query_error", err, "resp", resp)
 		return nil, err
 	}
 	for ts, i := range result {
