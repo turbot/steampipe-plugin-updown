@@ -13,6 +13,8 @@ select
   *
 from
   updown_downtime
+where
+  token = '3sdv'
 order by
   started_at desc
 ```
