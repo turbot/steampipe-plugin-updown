@@ -2,6 +2,7 @@ package updown
 
 import (
 	"context"
+	"errors"
 	"os"
 
 	"github.com/antoineaugusti/updown"
@@ -26,6 +27,11 @@ func connect(_ context.Context, d *plugin.QueryData) (*updown.Client, error) {
 		if updownConfig.APIKey != nil {
 			apiKey = *updownConfig.APIKey
 		}
+	}
+
+	if apiKey == "" {
+		// Credentials not set
+		return nil, errors.New("api_key must be configured")
 	}
 
 	conn := updown.NewClient(apiKey, nil)
