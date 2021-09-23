@@ -67,7 +67,6 @@ Installing the latest updown plugin will create a config file (`~/.steampipe/con
 connection "updown" {
   plugin     = "updown"
   api_key    = "9m_kAcfuTlW_JCrvoMYK6g"
-  api_secret = "lEEDVf3SgyQWckN3ASqMpXWpCixkwMzgnZY7"
 }
 ```
 
