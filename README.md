@@ -36,7 +36,7 @@ Prerequisites:
 Clone:
 
 ```sh
-git clone git@github.com:turbot/steampipe-plugin-updown
+git clone https://github.com/turbot/steampipe-plugin-updown.git
 cd steampipe-plugin-updown
 ```
 
