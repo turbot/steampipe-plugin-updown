@@ -3,7 +3,7 @@
 _Enhancements_
 
 - Recompiled plugin with [steampipe-plugin-sdk v1.6.1](https://github.com/turbot/steampipe-plugin-sdk/blob/main/CHANGELOG.md#v161--2021-09-21) ([#3](https://github.com/turbot/steampipe-plugin-updown/pull/3))
-- The configuration section in the docs/index.md file has been updated to exclude the need of `api_secret` in the `~/.steampipe/config/updown.spc` file
+- The configuration section in the docs/index.md file has been updated to exclude the need of `api_secret` in the `~/.steampipe/config/updown.spc` file ([#4](https://github.com/turbot/steampipe-plugin-updown/pull/4))
 
 ## v0.0.2 [2021-06-16]
 
