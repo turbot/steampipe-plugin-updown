@@ -23,12 +23,10 @@ func connect(_ context.Context, d *plugin.QueryData) (*updown.Client, error) {
 
 	// But prefer the config
 	updownConfig := GetConfig(d.Connection)
-	if &updownConfig != nil {
-		if updownConfig.APIKey != nil {
-			apiKey = *updownConfig.APIKey
-		}
+	if updownConfig.APIKey != nil {
+		apiKey = *updownConfig.APIKey
 	}
-
+	
 	if apiKey == "" {
 		// Credentials not set
 		return nil, errors.New("api_key must be configured")
