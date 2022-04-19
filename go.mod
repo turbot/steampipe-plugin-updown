@@ -1,6 +1,6 @@
 module github.com/turbot/steampipe-plugin-updown
 
-go 1.17
+go 1.18
 
 require (
 	github.com/antoineaugusti/updown v0.0.0-20190412074625-d590ab97f115
