@@ -7,7 +7,7 @@ import (
 
 	"github.com/antoineaugusti/updown"
 
-	"github.com/turbot/steampipe-plugin-sdk/v3/plugin"
+	"github.com/turbot/steampipe-plugin-sdk/v4/plugin"
 )
 
 func connect(_ context.Context, d *plugin.QueryData) (*updown.Client, error) {
