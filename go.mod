@@ -4,7 +4,7 @@ go 1.19
 
 require (
 	github.com/antoineaugusti/updown v0.0.0-20190412074625-d590ab97f115
-	github.com/turbot/steampipe-plugin-sdk/v4 v4.1.6
+	github.com/turbot/steampipe-plugin-sdk/v5 v4.1.6
 )
 
 require (

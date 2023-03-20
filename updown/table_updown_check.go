@@ -3,9 +3,9 @@ package updown
 import (
 	"context"
 
-	"github.com/turbot/steampipe-plugin-sdk/v4/grpc/proto"
-	"github.com/turbot/steampipe-plugin-sdk/v4/plugin"
-	"github.com/turbot/steampipe-plugin-sdk/v4/plugin/transform"
+	"github.com/turbot/steampipe-plugin-sdk/v5/grpc/proto"
+	"github.com/turbot/steampipe-plugin-sdk/v5/plugin"
+	"github.com/turbot/steampipe-plugin-sdk/v5/plugin/transform"
 )
 
 func tableUpDownCheck(ctx context.Context) *plugin.Table {
@@ -66,7 +66,7 @@ func getCheck(ctx context.Context, d *plugin.QueryData, _ *plugin.HydrateData) (
 		plugin.Logger(ctx).Error("updown_check.getCheck", "connection_error", err)
 		return nil, err
 	}
-	quals := d.KeyColumnQuals
+	quals := d.EqualsQuals
 	token := quals["token"].GetStringValue()
 	result, resp, err := conn.Check.Get(token)
 	if err != nil {

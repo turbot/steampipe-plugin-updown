@@ -3,9 +3,9 @@ package updown
 import (
 	"context"
 
-	"github.com/turbot/steampipe-plugin-sdk/v4/grpc/proto"
-	"github.com/turbot/steampipe-plugin-sdk/v4/plugin"
-	"github.com/turbot/steampipe-plugin-sdk/v4/plugin/transform"
+	"github.com/turbot/steampipe-plugin-sdk/v5/grpc/proto"
+	"github.com/turbot/steampipe-plugin-sdk/v5/plugin"
+	"github.com/turbot/steampipe-plugin-sdk/v5/plugin/transform"
 )
 
 func tableUpDownDowntime(ctx context.Context) *plugin.Table {
@@ -33,7 +33,7 @@ func listDowntime(ctx context.Context, d *plugin.QueryData, _ *plugin.HydrateDat
 		plugin.Logger(ctx).Error("updown_downtime.listDowntime", "connection_error", err)
 		return nil, err
 	}
-	quals := d.KeyColumnQuals
+	quals := d.EqualsQuals
 	t := quals["token"].GetStringValue()
 	// Rough paging approach - best we can do given the API
 	page := 1
