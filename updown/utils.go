@@ -7,7 +7,7 @@ import (
 
 	"github.com/antoineaugusti/updown"
 
-	"github.com/turbot/steampipe-plugin-sdk/v4/plugin"
+	"github.com/turbot/steampipe-plugin-sdk/v5/plugin"
 )
 
 func connect(_ context.Context, d *plugin.QueryData) (*updown.Client, error) {
@@ -41,7 +41,7 @@ func connect(_ context.Context, d *plugin.QueryData) (*updown.Client, error) {
 }
 
 func tokenString(ctx context.Context, d *plugin.QueryData, _ *plugin.HydrateData) (interface{}, error) {
-	quals := d.KeyColumnQuals
+	quals := d.EqualsQuals
 	t := quals["token"].GetStringValue()
 	return t, nil
 }
