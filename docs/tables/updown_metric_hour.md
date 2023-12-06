@@ -11,6 +11,9 @@ An Updown.io Metric Hour is a resource that provides an hourly breakdown of chec
 
 The `updown_metric_hour` table provides detailed insights into the hourly performance and uptime of applications monitored by Updown.io. As a DevOps engineer, you can use this table to explore detailed metrics, including the number of checks, response times, and events that occurred within a specific hour. This can help in identifying trends, diagnosing issues, and ensuring optimal application performance.
 
+**Important Notes**
+- You must specify the `token` in the `where` clause to query this table.
+
 ## Examples
 
 ### List all metrics by hour

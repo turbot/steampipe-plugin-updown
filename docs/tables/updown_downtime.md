@@ -11,6 +11,9 @@ Updown Downtime is a component of the Updown.io monitoring service that records 
 
 The `updown_downtime` table provides insights into service downtime within Updown.io. As a Site Reliability Engineer, explore downtime-specific details through this table, including start and end times, error ratios, and affected checks. Utilize it to uncover information about service disruptions, such as their duration, the degree of service impact, and the specific checks that were affected.
 
+**Important Notes**
+- You must specify the `token` in the `where` clause to query this table.
+
 ## Examples
 
 ### List all downtimes
