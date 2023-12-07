@@ -19,7 +19,7 @@ The `updown_metric_hour` table provides detailed insights into the hourly perfor
 ### List all metrics by hour
 Analyze the settings to understand the hourly metrics for a specific token. This can help you track performance trends and identify potential issues swiftly.
 
-```sql
+```sql+postgres
 select
   *
 from
@@ -27,13 +27,24 @@ from
 where
   token = '3sdv'
 order by
-  timestamp desc
+  timestamp desc;
+```
+
+```sql+sqlite
+select
+  *
+from
+  updown_metric_hour
+where
+  token = '3sdv'
+order by
+  timestamp desc;
 ```
 
 ### List all metric periods where the total time was greater than 400ms
 Determine the instances when the total metric period exceeded 400ms to identify potential performance issues and optimize system efficiency.
 
-```sql
+```sql+postgres
 select
   timestamp,
   timings ->> 'total' as timing_total
@@ -43,13 +54,26 @@ where
   token = '3sdv'
   and (timings ->> 'total')::int > 400
 order by
-  timestamp desc
+  timestamp desc;
+```
+
+```sql+sqlite
+select
+  timestamp,
+  json_extract(timings, '$.total') as timing_total
+from
+  updown_metric_hour
+where
+  token = '3sdv'
+  and cast(json_extract(timings, '$.total') as integer) > 400
+order by
+  timestamp desc;
 ```
 
 ### Percentage of samples responding under 1 second
 Analyze the performance of your web services by determining the percentage of response times that are under one second. This can help you assess the speed and efficiency of your services, enabling you to identify potential areas for improvement.
 
-```sql
+```sql+postgres
 select
   100 * (requests -> 'by_response_time' -> 'under1000')::int / (requests -> 'samples')::float as req_under_1sec
 from
@@ -57,5 +81,16 @@ from
 where
   token = '3sdv'
 order by
-  timestamp desc
+  timestamp desc;
+```
+
+```sql+sqlite
+select
+  100 * CAST(json_extract(requests, '$.by_response_time.under1000') as integer) / CAST(json_extract(requests, '$.samples') as real) as req_under_1sec
+from
+  updown_metric_hour
+where
+  token = '3sdv'
+order by
+  timestamp desc;
 ```

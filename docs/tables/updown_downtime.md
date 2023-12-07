@@ -19,7 +19,7 @@ The `updown_downtime` table provides insights into service downtime within Updow
 ### List all downtimes
 Discover the segments that have experienced downtimes in a specific area, ordered chronologically in reverse. This can help identify recurring issues and prioritize areas for improvement.
 
-```sql
+```sql+postgres
 select
   *
 from
@@ -27,5 +27,16 @@ from
 where
   token = '3sdv'
 order by
-  started_at desc
+  started_at desc;
+```
+
+```sql+sqlite
+select
+  *
+from
+  updown_downtime
+where
+  token = '3sdv'
+order by
+  started_at desc;
 ```

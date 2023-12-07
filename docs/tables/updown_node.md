@@ -16,11 +16,20 @@ The `updown_node` table provides insights into nodes within Updown.io's monitori
 ### List all nodes
 Explore the nodes within your network in a structured order, providing a comprehensive overview to facilitate management and troubleshooting. This query is useful in identifying potential issues or anomalies within your network.
 
-```sql
+```sql+postgres
 select
   *
 from
   updown_node
 order by
-  name
+  name;
+```
+
+```sql+sqlite
+select
+  *
+from
+  updown_node
+order by
+  name;
 ```

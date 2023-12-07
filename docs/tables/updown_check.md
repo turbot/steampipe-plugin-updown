@@ -16,33 +16,58 @@ The `updown_check` table provides insights into Checks within Updown.io. As a Si
 ### List all checks
 Explore all monitoring checks in your system to better understand the health and performance of your digital assets. This can help you proactively identify potential issues and rectify them before they escalate.
 
-```sql
+```sql+postgres
 select
   *
 from
-  updown_check
+  updown_check;
+```
+
+```sql+sqlite
+select
+  *
+from
+  updown_check;
 ```
 
 ### Get a check by token
 Discover the segments that correspond to a specific identifier in order to analyze and manage system checks more efficiently. This can be useful in pinpointing specific checks for troubleshooting or system optimization.
 
-```sql
+```sql+postgres
 select
   *
 from
   updown_check
 where
-  token = 'sdfw'
+  token = 'sdfw';
+```
+
+```sql+sqlite
+select
+  *
+from
+  updown_check
+where
+  token = 'sdfw';
 ```
 
 ### List checks that are currently down
 Identify instances where certain checks are currently down. This can assist in promptly addressing and rectifying any issues that might be affecting system performance or functionality.
 
-```sql
+```sql+postgres
 select
   *
 from
   updown_check
 where
-  down
+  down;
+```
+
+```sql+sqlite
+select
+  *
+from
+  updown_check
+where
+  down = 1;
 ```
