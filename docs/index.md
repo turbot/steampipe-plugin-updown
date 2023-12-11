@@ -8,6 +8,7 @@ name: updown
 description: Steampipe plugin for querying updown.io checks, metrics and downtime data.
 og_description: Query updown.io with SQL! Open source CLI. No DB required.
 og_image: "/images/plugins/turbot/updown-social-graphic.png"
+engines: ["steampipe", "sqlite", "postgres", "export"]
 ---
 
 # updown.io + Steampipe
