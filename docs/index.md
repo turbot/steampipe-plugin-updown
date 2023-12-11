@@ -71,7 +71,4 @@ connection "updown" {
 }
 ```
 
-## Get involved
 
-* Open source: https://github.com/turbot/steampipe-plugin-updown
-* Community: [Discussion forums](https://github.com/turbot/steampipe/discussions)
