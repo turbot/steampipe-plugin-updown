@@ -13,7 +13,7 @@ engines: ["steampipe", "sqlite", "postgres", "export"]
 
 # updown.io + Steampipe
 
-[Steampipe](https://steampipe.io) is an open source CLI to instantly query cloud APIs using SQL.
+[Steampipe](https://steampipe.io) is an open-source zero-ETL engine to instantly query cloud APIs using SQL.
 
 [updown](https://updown.io) is an online service that checks your website's status by periodically sending an HTTP request to the URL of your choice. It then notifies you by email or sms when your website is not responding correctly.
 
