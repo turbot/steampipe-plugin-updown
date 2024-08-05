@@ -6,7 +6,7 @@ toolchain go1.21.1
 
 require (
 	github.com/antoineaugusti/updown v0.0.0-20190412074625-d590ab97f115
-	github.com/turbot/steampipe-plugin-sdk/v5 v5.10.1
+	github.com/turbot/steampipe-plugin-sdk/v5 v5.10.2
 )
 
 require (
