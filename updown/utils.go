@@ -7,14 +7,14 @@ import (
 
 	"github.com/antoineaugusti/updown"
 
-	"github.com/turbot/steampipe-plugin-sdk/v5/plugin"
+	"github.com/turbot/steampipe-plugin-sdk/v6/plugin"
 )
 
-func connect(_ context.Context, d *plugin.QueryData) (*updown.Client, error) {
+func connect(ctx context.Context, d *plugin.QueryData) (*updown.Client, error) {
 
 	// Load connection from cache, which preserves throttling protection etc
 	cacheKey := "updown"
-	if cachedData, ok := d.ConnectionManager.Cache.Get(cacheKey); ok {
+	if cachedData, ok := d.ConnectionCache.Get(ctx, cacheKey); ok {
 		return cachedData.(*updown.Client), nil
 	}
 
@@ -26,7 +26,7 @@ func connect(_ context.Context, d *plugin.QueryData) (*updown.Client, error) {
 	if updownConfig.APIKey != nil {
 		apiKey = *updownConfig.APIKey
 	}
-	
+
 	if apiKey == "" {
 		// Credentials not set
 		return nil, errors.New("api_key must be configured")
@@ -35,7 +35,9 @@ func connect(_ context.Context, d *plugin.QueryData) (*updown.Client, error) {
 	conn := updown.NewClient(apiKey, nil)
 
 	// Save to cache
-	d.ConnectionManager.Cache.Set(cacheKey, conn)
+	if err := d.ConnectionCache.Set(ctx, cacheKey, conn); err != nil {
+		plugin.Logger(ctx).Warn("connect", "cache_set_error", err)
+	}
 
 	return conn, nil
 }
